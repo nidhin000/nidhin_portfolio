@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidhin_Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">Nidhin Thomas</a>
+
+        <nav class="navbar">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#portfolio" class="nav-link">Portfolio</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+    <section id="home"     class="home">
+        <div class="home-content">
+            <h1>Hi, I'am Nidhin Thomas</h1>
+            <h3>Python Developer</h3>
+            <p>As a Python Developer and Data Analyst, I am passionate about using technology to solve real-world problems. With strong skills in Python, HTML, CSS, JavaScript, and Data Analysis, I have gained hands-on experience through personal projects, internships, and academic work. Eager to contribute to innovative teams, I am committed to continuous learning and growth in a professional environment.</p>
+           <br>
+            <div class="btn-box">
+
+                <a href="#contact">Hire me</a>
+                <a href="#contact">Let's Talk</a>
+            </div>
+        </div>
+        <div class="home-sci">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+            <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+        </div>
+
+    </section>
+
+<br><br>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="about-content">
+        <h2>About Me</h2>
+        <p>Hi, I’m Nidhin, a passionate Python Developer. MCA graduate with a solid academic foundation and practical project experience. Proficient in analytical thinking, problem-solving, and innovation, with a strong commitment to continuous learning and a keen enthusiasm for contributing to team success.</p><br><br><br>
+    </div>
+
+    <div class="education">
+        <h3>Education</h3>
+        <ul>
+            <li><strong>Master's in Computer Science</strong> - Bangalore North University (2022 - 2024)</li>
+            <li><strong>Bachelor's in Computer Science</strong> - Bangalore University (2019 - 2022)</li>
+            
+        </ul>
+    </div>
+</section>
+
+<br><br>
+
+ <!-- Portfolio Section -->
+ <section id="portfolio" class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="projects">
+        <div class="project">
+            <img src="data.jpg" alt="Project 1">
+            <div class="project-info">
+                <h3>Work-vibe Analytic Employee Sentiment analysis</h3>
+                <p>WorkVibe Analytics is a project that focuses on analyzing employee sentiment within organizations through data-driven insights. The primary objective of this project is to assess the overall mood, satisfaction, and engagement levels of employees by leveraging Natural Language Processing (NLP) and machine learning models to analyze employee feedback. The analysis helps organizations understand their workforce's emotional state and identify potential areas for improvement in the workplace environment.</p>
+            </div>
+        </div>
+        <div class="project">
+            <img src="attendnce.jpg" alt="Project 2">
+            <div class="project-info">
+                <h3>College Attendence Management</h3>
+                <p>The College Attendance Management System is a comprehensive tool designed to efficiently manage and track student attendance across various departments in a college. The system provides a centralized platform to store and retrieve attendance data, making it easier for administrators, faculty, and students to monitor and manage attendance records. The project aims to automate the attendance process, reduce paperwork, and generate insightful reports for better decision-making..</p>
+            </div>
+        </div>
+        <!-- Add more projects here as needed -->
+    </div>
+</section>
+<br><br>
+
+ <!-- Contact Section -->
+ <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/mwpvlnaq" method="POST" id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+<script>
+    // When logo is clicked, scroll to the corresponding section
+    const logo = document.querySelector('.logo');
+    const aboutSection = document.querySelector('#about');
+    const portfolioSection = document.querySelector('#portfolio');
+    const contactSection = document.querySelector('#contact');
+
+    logo.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default behavior of the logo link
+        const sections = [aboutSection, portfolioSection, contactSection];
+        const randomSection = sections[Math.floor(Math.random() * sections.length)]; // Pick a random section
+        randomSection.scrollIntoView({ behavior: 'smooth' }); // Scroll to the selected section
+    });
+ // Navigation links
+ const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+<script>
+    // Get the form
+    const form = document.getElementById("contact-form");
+
+    // Add an event listener for form submission
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Form submission via Formspree
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Reset the form after 2 seconds
+                setTimeout(function() {
+                    form.reset();
+                }, 2000); // 2 seconds delay
+            } else {
+                alert("Error sending message!");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Error sending message!");
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
