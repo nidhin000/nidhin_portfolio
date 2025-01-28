@@ -309,3 +309,40 @@ body {
         font-size: 16px;
     }
 }
+/*-----------------------------------------------------------------------------------/*
+/* Mobile Menu Button (Hamburger) */
+.nav-toggle {
+    display: none;
+    font-size: 28px;
+    color: #ededed;
+    cursor: pointer;
+}
+
+/* Mobile Dropdown Menu */
+.navbar {
+    display: flex;
+}
+
+.navbar.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 10%;
+    background: rgb(7, 7, 82);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    z-index: 200;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* Hide the navbar by default on smaller screens */
+    }
+
+    .nav-toggle {
+        display: block; /* Show the hamburger icon */
+    }
+}
